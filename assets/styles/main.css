@@ -8,6 +8,17 @@ body {
   margin: 0 10%;
 }
 
+header {
+  margin: 3%;
+}
+
+button.btn.add-btn, button.btn.search-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 1em;
+}
+
 #map {
   height: 100%;
 }

@@ -8,35 +8,36 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
     <link rel="stylesheet" href="./assets/styles/main.css">
 
   </head>
   <body>
     <header class="navbar">
       <section class="navbar-section">
-        <button class="btn search-btn"><a href="#">S</a></button>
+        <button class="btn search-btn">S</button>
       </section>
       <section class="navbar-center">
         <!-- centered logo or brand -->
         <h1>LOGO</h1>
       </section>
       <section class="navbar-section">
-        <button class="btn add-btn"><a href="#">+</a></button>
+        <button class="btn add-btn" onclick="location.href = './add-entry/'">+</button>
       </section>
     </header>
 
     <div id="map"></div>
     <!-- Vector Design by <a href="https://www.vecteezy.com">www.vecteezy.com</a> -->
-    <script type='text/javascript' src='./assets/scripts/config.js'></script>
+
     <script>
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: {lat: 0, lng: 0},
+          zoom: 2,
+          minZoom: 2
         });
       }
-      var mykey = config.MY_KEY;
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Pcult6u3fdqLMBRvHJRTWkJlO08s3vY&callback=initMap"
     async defer></script>
