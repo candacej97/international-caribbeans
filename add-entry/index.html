@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Add Entry | International Caribbeans</title>
     <meta name="viewport" content="initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/icons/favicon-32.png">
 
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
@@ -19,7 +20,7 @@
       </section>
       <section class="navbar-center">
         <!-- centered logo or brand -->
-        <h1>LOGO</h1>
+        <img class="logo" src="../assets/icons/globe.svg" alt="logo" onclick="location.href = '../'" style="cursor:pointer;">
       </section>
       <section class="navbar-section">
         <!-- <button class="btn add-btn" onclick="./add-entry/">+</button> -->
@@ -28,14 +29,17 @@
 
     <form class="form-horizontal" action="../" method="post" target="_top">
       <div class="form-group">
-        <input class="form-input" type="text" id="input-example-1" placeholder="Name">
+        <input class="form-input" type="text" id="name" placeholder="Name">
       </div>
       <div class="form-group">
-        <input class="form-input" type="text" id="input-example-1" placeholder="Full Address">
+        <input class="form-input" type="text" id="address" placeholder="Full Address">
+      </div>
+      <div class="form-group">
+        <input class="form-input" type="tel" id="telephone" placeholder="Telephone Number">
       </div>
       <div class="form-group">
         <select class="form-select">
-          <option>Choose a category</option>
+          <option>Categorize</option>
           <option>Restaraunt</option>
           <option>Grocery Store</option>
           <option>Clothing Store</option>
@@ -51,8 +55,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label class="form-label" for="socialMedia">Website/Social Media</label>
-        <textarea class="form-input" id="socialMedia" placeholder="Website/Social Media" rows="3"></textarea>
+        <label class="form-label" for="socialMedia">Anyting else?</label>
+        <textarea class="form-input" id="socialMedia" placeholder="List any social media handles, websites or other useful information that you know is associated with this establishment." rows="3"></textarea>
       </div>
       <div class="form-group">
         <label class="form-label">Is this establishment on Google Maps/Places?</label>
