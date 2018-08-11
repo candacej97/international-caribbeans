@@ -27,67 +27,69 @@
       </section>
     </header>
 
-    <form class="form-horizontal" action="../" method="post" target="_top">
+    <form class="form-horizontal" id="entryForm" action="../" method="post" target="_self">
 
       <div class="form-group">
-        <input class="form-input" type="text" id="name" placeholder="Name">
+        <input class="form-input" type="text" id="name" value="" placeholder="Name">
       </div>
 
       <div class="form-group">
-        <input class="form-input" type="text" id="address" placeholder="Full Address">
+        <input class="form-input" type="text" id="address" value="" placeholder="Full Address">
       </div>
 
       <div class="form-group">
-        <input class="form-input" type="tel" id="telephone" placeholder="Telephone Number">
+        <input class="form-input" type="tel" id="telephone" value="" placeholder="Telephone Number">
       </div>
 
       <div class="form-group">
-        <select class="form-select">
-          <option>Categorize</option>
-          <option>Clothing Store</option>
-          <option>Grocery Store</option>
-          <option>Religious Institution</option>
-          <option>Restaraunt</option>
+        <select class="form-select" name="category" id="category">
+          <option value="">Categorize</option>
+          <option value="clothing-store">Clothing Store</option>
+          <option value="grocery-store">Grocery Store</option>
+          <option value="religious">Religious Institution</option>
+          <option value="restaraunt">Restaraunt</option>
         </select>
       </div>
 
       <div class="form-group">
         <label class="form-label" for="originCountries">Choose the country(ies) of origin</label>
-        <select class="form-select" id="originCountries" multiple>
-          <option>Antigua & Barbuda</option>
-          <option>Bahamas</option>
-          <option>Barbados</option>
-          <option>Cuba</option>
-          <option>Dominica</option>
-          <option>Dominican Republic</option>
-          <option>Grenada</option>
-          <option>Haiti</option>
-          <option>Jamaica</option>
-          <option>St. Kitts & Nevis</option>
-          <option>St. Lucia</option>
-          <option>St. Vincent & Grenadines</option>
-          <option>Trinidad & Tobago</option>
+        <select class="form-select originCountries" id="originCountries" name="originCountries" multiple="multiple">
+          <option value="antigua-barbuda">Antigua & Barbuda</option>
+          <option value="bahamas">Bahamas</option>
+          <option value="barbados">Barbados</option>
+          <option value="cuba">Cuba</option>
+          <option value="dominica">Dominica</option>
+          <option value="dominican-republic">Dominican Republic</option>
+          <option value="grenada">Grenada</option>
+          <option value="haiti">Haiti</option>
+          <option value="jamaica">Jamaica</option>
+          <option value="st-kitts-nevis">St. Kitts & Nevis</option>
+          <option value="st-lucia">St. Lucia</option>
+          <option value="st-vincent-grenadines">St. Vincent & Grenadines</option>
+          <option value="trinidad-tobago">Trinidad & Tobago</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="socialMedia">Anyting else?</label>
-        <textarea class="form-input" id="socialMedia" placeholder="List any social media handles, websites or other useful information that you know is associated with this establishment." rows="3"></textarea>
+        <label class="form-label" for="moreInfo">Anyting else?</label>
+        <textarea class="form-input" id="moreInfo" name="moreInfo" placeholder="List any social media handles, websites or other useful information that you know is associated with this establishment." rows="3"></textarea>
       </div>
 
       <div class="form-group">
         <label class="form-label">Is this establishment on Google Maps/Places?</label> <br>
         <label class="form-radio">
-          <input type="radio" name="online"><i class="form-icon"></i> Yes
+          <input type="radio" name="online" value="true"><i class="form-icon"></i> Yes
         </label>
         <label class="form-radio">
-          <input type="radio" name="online"><i class="form-icon"></i> No
+          <input type="radio" name="online" value="false"><i class="form-icon"></i> No
         </label>
       </div>
 
-      <input class="btn btn-primary input-group-btn" type="submit" value="Submit">
+      <input id="form-submit" class="btn btn-primary input-group-btn" type="submit" value="Submit">
+
     </form>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
     <script src="../assets/scripts/config.js"></script>
