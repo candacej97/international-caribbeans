@@ -28,45 +28,63 @@
     </header>
 
     <form class="form-horizontal" action="../" method="post" target="_top">
+
       <div class="form-group">
         <input class="form-input" type="text" id="name" placeholder="Name">
       </div>
+
       <div class="form-group">
         <input class="form-input" type="text" id="address" placeholder="Full Address">
       </div>
+
       <div class="form-group">
         <input class="form-input" type="tel" id="telephone" placeholder="Telephone Number">
       </div>
+
       <div class="form-group">
         <select class="form-select">
           <option>Categorize</option>
-          <option>Restaraunt</option>
-          <option>Grocery Store</option>
           <option>Clothing Store</option>
+          <option>Grocery Store</option>
           <option>Religious Institution</option>
+          <option>Restaraunt</option>
         </select>
       </div>
+
       <div class="form-group">
         <label class="form-label" for="originCountries">Choose the country(ies) of origin</label>
         <select class="form-select" id="originCountries" multiple>
-          <option>Jamaica</option>
-          <option>Antigua</option>
+          <option>Antigua & Barbuda</option>
+          <option>Bahamas</option>
+          <option>Barbados</option>
+          <option>Cuba</option>
+          <option>Dominica</option>
+          <option>Dominican Republic</option>
+          <option>Grenada</option>
           <option>Haiti</option>
+          <option>Jamaica</option>
+          <option>St. Kitts & Nevis</option>
+          <option>St. Lucia</option>
+          <option>St. Vincent & Grenadines</option>
+          <option>Trinidad & Tobago</option>
         </select>
       </div>
+
       <div class="form-group">
         <label class="form-label" for="socialMedia">Anyting else?</label>
         <textarea class="form-input" id="socialMedia" placeholder="List any social media handles, websites or other useful information that you know is associated with this establishment." rows="3"></textarea>
       </div>
+
       <div class="form-group">
-        <label class="form-label">Is this establishment on Google Maps/Places?</label>
-        <label class="form-radio form-inline">
-          <input type="radio"><i class="form-icon"></i> Yes
+        <label class="form-label">Is this establishment on Google Maps/Places?</label> <br>
+        <label class="form-radio">
+          <input type="radio" name="online"><i class="form-icon"></i> Yes
         </label>
-        <label class="form-radio form-inline">
-          <input type="radio" checked=""><i class="form-icon"></i> No
+        <label class="form-radio">
+          <input type="radio" name="online"><i class="form-icon"></i> No
         </label>
       </div>
+
       <input class="btn btn-primary input-group-btn" type="submit" value="Submit">
     </form>
 
