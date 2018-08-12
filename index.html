@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 
+    <link href="http://cdn.mapfit.com/v2-4/assets/css/mapfit.css" rel='stylesheet' />
+
     <link rel="stylesheet" href="./assets/styles/main.css">
 
   </head>
@@ -27,21 +29,23 @@
       </section>
     </header>
 
-    <div id="map"></div>
+    <div id="mapfit" style="width: 100%; height: 435px;"></div>
     Vector Design by <a href="https://www.vecteezy.com">www.vecteezy.com</a>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.mapfit.com/v2-4/assets/js/tetragon.js"></script>
+    <script src="http://cdn.mapfit.com/v2-4/assets/js/mapfit.js"></script>
+    <script src="./assets/scripts/config.js"></script>
+
     <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 0, lng: 0},
-          zoom: 2,
-          minZoom: 2
-        });
-      }
+      // add api key
+      mapfit.apikey = mapfitConfig.apikey;
+
+      // draw map
+      let map = mapfit.MapView('mapfit', {theme: 'day'});
+
+      //set zoom
+      map.setZoom(13);
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Pcult6u3fdqLMBRvHJRTWkJlO08s3vY&callback=initMap"
-    async defer></script>
   </body>
 </html>
