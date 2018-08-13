@@ -33,10 +33,11 @@
     Vector Design by <a href="https://www.vecteezy.com">www.vecteezy.com</a>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.mapfit.com/v2-4/assets/js/tetragon.js"></script>
-    <script src="http://cdn.mapfit.com/v2-4/assets/js/mapfit.js"></script>
+
     <script src="./assets/scripts/config.js"></script>
 
+    <script src="https://cdn.mapfit.com/v2-4/assets/js/tetragon.js"></script>
+    <script src="http://cdn.mapfit.com/v2-4/assets/js/mapfit.js"></script>
     <script>
       // add api key
       mapfit.apikey = mapfitConfig.apikey;
@@ -46,6 +47,17 @@
 
       //set zoom
       map.setZoom(13);
+      
+      // create marker
+      position = mapfit.LatLng([40.745934, -73.988280]);
+      myMarker = mapfit.Marker(position);
+
+      //set the map center on marker position
+      map.setCenter(position);
+
+      //add marker to map
+      map.addMarker(myMarker);
+
     </script>
   </body>
 </html>

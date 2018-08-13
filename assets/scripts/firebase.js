@@ -22,7 +22,7 @@ form.onsubmit = () => {
 
 
   // Initialize an instance of Firebase
-  firebase.initializeApp(config);
+  firebase.initializeApp(firestoreConfig);
 
   // Initialize Cloud Firestore through Firebase
   var db = firebase.firestore();
