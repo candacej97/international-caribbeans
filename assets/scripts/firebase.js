@@ -1,47 +1,28 @@
-// TODO: LINK TO FIREBASE AND SEND FORM INFORMATION TO IT
+// Code below is from https://gist.github.com/dvidsilva/e000acc9610b21e43e0a58e5982bd6e9
 
-let form = document.getElementById('entryForm');
+(function(){
+    var newscript = document.createElement('script');
+       newscript.type = 'text/javascript';
+       newscript.async = true;
+       newscript.src = 'https://www.gstatic.com/firebasejs/3.0.2/firebase.js';
+    (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);
+})();
 
-form.onsubmit = () => {
-  let name = document.getElementById('name').value;
-  let address = document.getElementById('address').value;
-  let originCountries = $('#originCountries').val();
-  let category = document.getElementById('category').value;
-  let google = false;
-  let radios = document.getElementsByName('online');
+_setFormData = function setFormData (sel, data) {
+    console.info('setting form to data', data);
+    var inputList = document.querySelectorAll(sel + ' [name]');
+    [].forEach.call(inputList, function(input) {
+        console.log(input);
+        if (data[input.name] && data[input.name] !== "undefined") {
+          input.value = data[input.name];
+        }
+    });
+};
 
-  for (var i = 0, length = radios.length; i < length; i++) {
-     if (radios[i].checked) {
-      google = radios[i].value;
-      break;
-     }
-  }
-
-  let otherInfo = document.getElementById('moreInfo').value;
-  let telephone = document.getElementById('telephone').value;
-
-
-  // Initialize an instance of Firebase
-  firebase.initializeApp(firestoreConfig);
-
-  // Initialize Cloud Firestore through Firebase
-  var db = firebase.firestore();
-
-  // Add a new document with a generated id.
-  db.collection("userData").add({
-      name: name,
-      address: address,
-      originCountries: originCountries,
-      category: category,
-      google: google,
-      otherInfo: otherInfo,
-      telephoneNum: telephone
-  })
-  .then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function(error) {
-      console.error("Error adding document: ", error);
+var _fb;
+var fbToForm = function fbToForm (key, sel) {
+  _fb = _fb && _fb.name === "fbToForm" ? _fb : firebase.initializeApp(firebaseConfig, "fbToForm");
+  _fb.database().ref('user-data/' + key).on('value', function(snapshot) {
+      _setFormData(sel, snapshot.val());
   });
-
 };

@@ -22,19 +22,18 @@
       </section>
       <section class="navbar-section"></section>
     </header>
-
-    <form class="form-horizontal" id="entryForm" onsubmit="sendInformation()" action="../" method="post" target="_self">
+    <form class="form-horizontal" id="entryForm" action="../" method="post" target="_top">
 
       <div class="form-group">
-        <input class="form-input" type="text" id="name" value="" placeholder="Name">
+        <input class="form-input" type="text" id="name" value="" placeholder="Name" name="name">
       </div>
 
       <div class="form-group">
-        <input class="form-input" type="text" id="address" value="" placeholder="Full Address">
+        <input class="form-input" type="text" id="address" value="" placeholder="Full Address" name="address">
       </div>
 
       <div class="form-group">
-        <input class="form-input" type="tel" id="telephone" value="" placeholder="Telephone Number">
+        <input class="form-input" type="tel" id="telephone" value="" placeholder="Telephone Number" name="telephone">
       </div>
 
       <div class="form-group">
@@ -81,20 +80,48 @@
         </label>
       </div>
 
-      <input id="form-submit" class="btn btn-primary input-group-btn" type="submit" value="Submit">
+      <input id="form-submit" class="btn btn-primary input-group-btn" type="submit" value="Submit" formaction="../">
 
     </form>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
 
     <script src="../assets/scripts/config.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script> -->
     <script src="../assets/scripts/firebase.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.9.0"></script>
     <script src="../assets/scripts/places.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script>
+      $.fn.getFormData = function() {
+        var fields = this.find('[name]');
+        var result = {};
+        $.each(fields, function (i, el) {
+          if (el.name === "originCountries") {
+            result[el.name] = $('#originCountries').val();
+          } else {
+            result[el.name] = el.value;
+          }
+        });
+        return result;
+      };
+      var fb = firebase.initializeApp(firebaseConfig);
+      var user_id;
+      $('#form-submit').on('click', function (e) {
+        e.preventDefault();
+        var updates = {};
+        user_id = user_id ? user_id : fb.database().ref().child('user-data').push().key;
+        updates[user_id] = $('form').getFormData();
+        fb.database().ref().child('user-data').update(updates).then(() => {
+          let el = document.getElementById('successMessage');
+          el.style.display = 'inline-block';
+          window.location.replace("../");
+        });
+      });
+    </script>
   </body>
 </html>
