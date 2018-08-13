@@ -16,6 +16,11 @@
 
   </head>
   <body>
+    <div class="toast toast-success" id="successMessage">
+      <button class="btn btn-clear float-right" id="successClose"></button>
+      Information received.
+    </div>
+
     <header class="navbar">
       <section class="navbar-section">
         <button class="btn search-btn">S</button>
@@ -37,16 +42,16 @@
     <script src="./assets/scripts/config.js"></script>
 
     <script src="https://cdn.mapfit.com/v2-4/assets/js/tetragon.js"></script>
-    <script src="http://cdn.mapfit.com/v2-4/assets/js/mapfit.js"></script>
+    <script src="https://cdn.mapfit.com/v2-4/assets/js/mapfit.js"></script>
     <script>
       // add api key
-      mapfit.apikey = mapfitConfig.apikey;
+      mapfit.apikey = mapfitConfig.apiKey;
 
       // draw map
       let map = mapfit.MapView('mapfit', {theme: 'day'});
 
       //set zoom
-      map.setZoom(13);
+      map.setZoom(3);
       
       // create marker
       position = mapfit.LatLng([40.745934, -73.988280]);
@@ -59,5 +64,10 @@
       map.addMarker(myMarker);
 
     </script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+    <script src="./assets/scripts/firebase.js"></script>
+
   </body>
 </html>
