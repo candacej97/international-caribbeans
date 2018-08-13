@@ -117,8 +117,6 @@
         user_id = user_id ? user_id : fb.database().ref().child('user-data').push().key;
         updates[user_id] = $('form').getFormData();
         fb.database().ref().child('user-data').update(updates).then(() => {
-          let el = document.getElementById('successMessage');
-          el.style.display = 'inline-block';
           window.location.replace("../");
         });
       });
