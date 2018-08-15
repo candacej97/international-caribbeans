@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 
     <link rel="stylesheet" href="../assets/styles/main.css">
+    <style>
+      form {
+        margin: 0 25vw;
+      }
+    </style>
 
   </head>
   <body>
@@ -22,7 +27,20 @@
       </section>
       <section class="navbar-section"></section>
     </header>
-    
+
+    <h1 style="text-align: center;">Welcome to the Admin Console</h1>
+    <form>
+      <div class="form-group">
+        <input class="form-input" name="email" type="email" placeholder="email" required>
+        <br>
+        <input class="form-input" name="password" type="password" required>
+        <br>
+      </div>
+
+      <button class="btn btn-primary input-group-btn">Log In</button>
+      <button class="btn btn-primary input-group-btn" style="float: right;">Sign Up</button>
+    </form>
+
     <script src="../assets/scripts/config.js"></script>
 
     <!-- <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
