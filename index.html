@@ -17,7 +17,6 @@
   </head>
   <body>
     <div class="toast toast-success" id="successMessage">
-      <button class="btn btn-clear float-right" id="successClose"></button>
       <button class="btn btn-clear float-right" id="successClose" onclick="closeAlert()" ></button>
       Information received.
     </div>
@@ -45,6 +44,13 @@
     <script src="https://cdn.mapfit.com/v2-4/assets/js/tetragon.js"></script>
     <script src="https://cdn.mapfit.com/v2-4/assets/js/mapfit.js"></script>
     <script>
+
+      let closeAlert = () => {
+        let el = document.getElementById('successMessage');
+        el.classList.add("animated");
+        el.classList.add("fadeOut");
+      }
+
       // add api key
       mapfit.apikey = mapfitConfig.apiKey;
 
@@ -52,18 +58,42 @@
       let map = mapfit.MapView('mapfit', {theme: 'day'});
 
       //set zoom
-      map.setZoom(0);
-      
-      // create marker
-      position = mapfit.LatLng([40.745934, -73.988280]);
-      myMarker = mapfit.Marker(position);
+      map.setZoom(13);
+  
+      // SET MAP CENTER TO THE USER GEOLOCATION
+      let currentArr;
+      let getLocation = () => {
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition((position) => {
+                // console.log(position.coords);
+                currentArr = [ position.coords.latitude, position.coords.longitude ];
+                map.setCenter(currentArr);
 
-      //set the map center on marker position
-      map.setCenter(position);
+                // create marker
+                myMarker = mapfit.Marker(currentArr);
 
-      //add marker to map
-      map.addMarker(myMarker);
+                // add marker to map
+                map.addMarker(myMarker);
+
+                // create icon
+                let myIcon = mapfit.Icon();
+
+                // set icon category
+                myIcon.setIconUrl('sports');
+
+                // assign icon to marker
+                myMarker.setIcon(myIcon);
+              });
+
+          } else {
+              console.log("Geolocation is not supported by this browser.");
+          }
+      }
+      getLocation();
+
 
     </script>
+    <script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
+    <script src="./assets/scripts/markers.js"></script>
   </body>
 </html>
