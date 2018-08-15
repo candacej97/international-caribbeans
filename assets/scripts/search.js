@@ -1,25 +1,48 @@
+let locate = (e) => {
+    console.log(e.target.value);
+    
+    // let geo = mapfit.Geocoder(mapfitConfig.apiKey, "https://api.mapfit.com/v2");
+    // let response = geocode(searchInput.value, true);
+    // console.log(response);
+
+    // https://github.com/algolia/places
+    // Library used for address autocomplete
+
+
+
+}
+
+let searchInput;
 let searchBtn = document.getElementById('search-btn');
 searchBtn.addEventListener('click', () => {
     // REPLACE <button> WITH CUSTOM <input>
     let replacementEl = document.createElement("input");
     replacementEl.classList.add('form-input');
     replacementEl.attributes.type = 'text';
-    replacementEl.attributes.id = 'search-input';
+    replacementEl.id = 'search-input';
     replacementEl.attributes.placeholder = 'Search';
 
-    let searchingBtn = document.createElement("button");
-    searchingBtn.classList = "btn btn-primary input-group-btn";
+    // let searchingBtn = document.createElement("button");
+    // searchingBtn.classList = "btn btn-primary input-group-btn";
     
-    let iconNode = document.createElement('i');
-    iconNode.classList = "icon icon-search";
-    searchingBtn.appendChild(iconNode);
+    // let iconNode = document.createElement('i');
+    // iconNode.classList = "icon icon-search";
+    // searchingBtn.appendChild(iconNode);
     
     searchParent = searchBtn.parentNode;
-    searchParent.classList.add('input-group');
+    // searchParent.classList.add('input-group');
 
-    searchParent.appendChild(searchingBtn);
+    // searchParent.appendChild(searchingBtn);
 
     // MOVE IT, THEN REMOVE IT
     searchParent.insertBefore(replacementEl, searchBtn);
     searchBtn.parentNode.removeChild(searchBtn);
+
+    searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('keypress', () => {
+        // let placesAutocomplete = places({
+        //     container: document.querySelector('#search-input')
+        //   });
+        
+    });
 })

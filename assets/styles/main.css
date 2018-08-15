@@ -56,24 +56,13 @@ div#successMessage.toast.toast-success {
   animation-name: fadeOut;
 }
 
-.input-group .form-input {
+input#search-input.form-input {
   border-radius: 2rem;
-  border-right-width: 0;
   border-color: #5755d9;
   height: 50px;
+  padding-left: 15px;
 }
 
-button.btn.btn-primary.input-group-btn {
-  background: rgba(0, 0, 0, 0);
-  border-left-width: 0;
-  border-radius: 2rem;
-  height: 50px;
-}
-
-button i.icon.icon-search {
-  color: #5755d9;
-}
-
-.form-input:focus {
+:focus {
   box-shadow: none;
 }

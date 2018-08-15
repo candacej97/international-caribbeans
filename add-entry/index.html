@@ -91,11 +91,18 @@
     <script src="../assets/scripts/firebase.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.9.0"></script>
-    <script src="../assets/scripts/places.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
     <script>
+
+      // https://github.com/algolia/places
+      // Library used for address autocomplete
+
+      let placesAutocomplete = places({
+          container: document.querySelector('#address')
+      });
+
       $.fn.getFormData = function() {
         let fields = this.find('[name]');
         let result = {};

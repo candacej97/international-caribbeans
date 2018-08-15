@@ -39,6 +39,10 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+    <script src="./assets/scripts/arrive.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.9.0"></script>
+
     <script src="./assets/scripts/config.js"></script>
 
     <script src="https://cdn.mapfit.com/v2-4/assets/js/tetragon.js"></script>
@@ -90,6 +94,14 @@
           }
       }
       getLocation();
+
+      // watch for creation of an element which satisfies the selector
+      $(document).arrive("#search-input", function() {          
+          // 'this' refers to the newly created element
+          let placesAutocomplete = places({
+            container: this
+          });
+      });
 
     </script>
     <script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
