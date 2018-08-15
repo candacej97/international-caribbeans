@@ -35,3 +35,45 @@ form.form-horizontal {
 div#successMessage.toast.toast-success {
   display: none;
 }
+
+.animated {
+  -webkit-animation-duration: 10s;animation-duration: 10s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+.input-group .form-input {
+  border-radius: 2rem;
+  border-right-width: 0;
+  border-color: #5755d9;
+  height: 50px;
+}
+
+button.btn.btn-primary.input-group-btn {
+  background: rgba(0, 0, 0, 0);
+  border-left-width: 0;
+  border-radius: 2rem;
+  height: 50px;
+}
+
+button i.icon.icon-search {
+  color: #5755d9;
+}
+
+.form-input:focus {
+  box-shadow: none;
+}

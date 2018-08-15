@@ -32,7 +32,7 @@ let createMarkers = (entriesObj) => {
     
 }
 
-// CREATE MARKER TOOLTIP FROM ENTRIES' INFO
+// TODO: CREATE MARKER TOOLTIP FROM ENTRIES' INFO
 
 
 
