@@ -12,7 +12,7 @@ This web app was created with the Caribbean community in mind. While travelling 
 
 ## Stack
 * HTML5
-* CSS3
+* CSS3 (framework: [Spectre](https://github.com/picturepan2/spectre))
 * ES6
 
 <!-- H3 -->
@@ -21,5 +21,7 @@ This web app was created with the Caribbean community in mind. While travelling 
       * Used for address autocomplete
 * [Mapfit](https://mapfit.com/)
       * Used as a replacement map, geocoder, directions from Google Maps
+* [arrive.js](https://github.com/uzairfarooq/arrive)
+      * Used for the execution of Algolia Places library script when the "state" of the homepage changes after the search button is clicked
 
 ## [Live Version](https://candacej97.github.io/international-caribbeans)
