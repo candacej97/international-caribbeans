@@ -60,9 +60,13 @@ input#search-input.form-input {
   border-radius: 2rem;
   border-color: #5755d9;
   height: 50px;
-  padding-left: 15px;
+  padding: 0 30px 0 15px;
 }
 
 :focus {
   box-shadow: none;
+}
+
+span.algolia-places {
+  z-index: 1000;
 }
