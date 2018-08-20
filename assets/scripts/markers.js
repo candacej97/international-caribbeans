@@ -23,7 +23,14 @@ let createMarkers = (entriesObj) => {
 
             // add marker to map
             map.addMarker(myMarker);
-            
+
+            // CREATE MARKER TOOLTIP FROM ENTRIES' INFO
+            let infoCard = mapfit.PlaceInfo(myMarker);
+            infoCard.setTitle(entriesObj[entry].name);
+            infoCard.setDescription(entriesObj[entry].address + '<br/>' + entriesObj[entry].category + '<br/>' + entriesObj[entry].originCountires);
+
+            myMarker.setPlaceInfo(infoCard);
+
         }
     }
 
@@ -32,7 +39,6 @@ let createMarkers = (entriesObj) => {
     
 }
 
-// TODO: CREATE MARKER TOOLTIP FROM ENTRIES' INFO
 
 
 
