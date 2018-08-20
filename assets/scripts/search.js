@@ -1,16 +1,3 @@
-let locate = (e) => {
-    console.log(e.target.value);
-    
-    // let geo = mapfit.Geocoder(mapfitConfig.apiKey, "https://api.mapfit.com/v2");
-    // let response = geocode(searchInput.value, true);
-    // console.log(response);
-
-    // https://github.com/algolia/places
-    // Library used for address autocomplete
-
-
-
-}
 
 let searchInput;
 let searchBtn = document.getElementById('search-btn');
