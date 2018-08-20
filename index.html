@@ -49,19 +49,20 @@
     <script src="https://cdn.mapfit.com/v2-4/assets/js/mapfit.js"></script>
     <script>
 
+      // FUNCTION TO RUN WHEN THE ALERT IS CLOSED BY USER
       let closeAlert = () => {
         let el = document.getElementById('successMessage');
         el.classList.add("animated");
         el.classList.add("fadeOut");
       }
 
-      // add api key
+      // ADD API KEY
       mapfit.apikey = mapfitConfig.apiKey;
 
-      // draw map
+      // DRAW MAP
       let map = mapfit.MapView('mapfit', {theme: 'day'});
 
-      //set zoom
+      // SET ZOOM
       map.setZoom(13);
   
       // SET MAP CENTER TO THE USER GEOLOCATION
@@ -87,6 +88,12 @@
 
                 // assign icon to marker
                 myMarker.setIcon(myIcon);
+
+                let infoCard = mapfit.PlaceInfo(myMarker);
+                infoCard.setTitle('Current Location');
+
+                myMarker.setPlaceInfo(infoCard);
+
               });
 
           } else {
@@ -95,11 +102,20 @@
       }
       getLocation();
 
-      // watch for creation of an element which satisfies the selector
+      // WATCH FOR CREATION OF AN ELEMENT WHICH SATISFIES THE SELECTOR
       $(document).arrive("#search-input", function() {          
           // 'this' refers to the newly created element
           let placesAutocomplete = places({
             container: this
+          });
+          placesAutocomplete.on('change', (e) => {
+            // SET CENTER
+            map.setCenter(e.suggestion.latlng);
+
+            // SET ZOOM 15-17
+            map.setZoom(15)
+
+            console.log(e.suggestion);
           });
       });
 
