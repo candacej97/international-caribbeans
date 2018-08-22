@@ -16,11 +16,19 @@ header {
   width: 100%;
 }
 
+.navbar-section {
+  width: 33%;
+}
+
+.navbar-center {
+  width: 34%;
+}
+
 button.btn.add-btn, button.btn.search-btn {
-  height: 50px;
-  width: 50px;
+  height: 2.5rem;
+  width: 2.5rem;
   border-radius: 50%;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 #mapfit {
