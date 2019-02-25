@@ -31,10 +31,6 @@ button.btn.add-btn, button.btn.search-btn {
   font-size: 1rem;
 }
 
-#mapfit {
-  height: 100%;
-}
-
 form.form-horizontal {
   max-width: 500px;
   margin: auto;
