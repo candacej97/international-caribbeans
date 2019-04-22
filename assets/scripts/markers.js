@@ -10,21 +10,23 @@ let getEntries = () => {
 // CREATE MARKERS FROM ENTRIES
 let createMarkers = (entriesObj) => {
 
-    // let markers = [];
-
     for (const entry in entriesObj) {
-        // create marker
-        myMarker = mapfit.Marker();
+        // create marker todo
+        let marker = new mapboxgl.Marker()      
+        
+        console.log(`helooo`);
 
         if (entriesObj.hasOwnProperty(entry)) {
 
-            // set address property
-            myMarker.address = entriesObj[entry].address;
+            console.log(entriesObj[entry]);
 
-            // add marker to map
-            map.addMarker(myMarker);
+            // set lnglat property todo
+            marker.setLngLat(entriesObj[entry]);
 
-            // CREATE MARKER TOOLTIP FROM ENTRIES' INFO
+            // add marker to map todo
+            marker.addTo(map);
+
+            // CREATE MARKER TOOLTIP FROM ENTRIES' INFO todo
             let infoCard = mapfit.PlaceInfo(myMarker);
             infoCard.setTitle(entriesObj[entry].name);
             infoCard.setDescription(entriesObj[entry].address + '<br/>' + entriesObj[entry].category + '<br/>' + entriesObj[entry].originCountires);
@@ -32,14 +34,7 @@ let createMarkers = (entriesObj) => {
             myMarker.setPlaceInfo(infoCard);
 
         }
-    }
-
-    
-    // console.log(entriesObj);
-    
+    }    
 }
-
-
-
 
 getEntries();
