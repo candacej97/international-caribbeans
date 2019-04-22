@@ -13,11 +13,6 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 
     <link rel="stylesheet" href="./assets/styles/main.css">
-    <style>
-      /* #map { position:static; width:100%; height: auto;} */
-      /* #map .mapboxgl-control-container { position: sticky; } */
-    </style>
-
   </head>
   <body>
     <div class="toast toast-success" id="successMessage">
@@ -61,13 +56,15 @@
         el.classList.add("fadeOut");
       }
 
+      let map;
+
       // SET MAP CENTER AS THE USER GEOLOCATION
       let getLocation = () => {
           if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition((position) => {
                 // DRAW MAP
                 mapboxgl.accessToken = 'pk.eyJ1IjoiY2FuZGFjZWo5NyIsImEiOiJjanNrbXQ5NDkwMDY4NDRsM2xmeWxlY2NuIn0.zIlYbo2MWxb2JxIsbG6wKA';
-                let map = new mapboxgl.Map({
+                map = new mapboxgl.Map({
                   container: 'map',
                   center: [ position.coords.longitude, position.coords.latitude ],
                   style: 'mapbox://styles/mapbox/streets-v11',
